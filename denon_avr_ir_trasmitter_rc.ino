@@ -15,7 +15,7 @@
 #define REPEAT_NUM 1
 
 void setup() {
-  Serial.begin(9600);        // opens serial port, sets data rate to 9600 bps
+  Serial.begin(230400);        // opens serial port, sets data rate to 9600 bps
   IrSender.begin(PIN_SEND);  // Initializes IR sender
 }
 
@@ -67,9 +67,6 @@ void loop() {
   } else if(c=="ss"){
     Serial.println("Sending 'system setup'");
     IrSender.sendPronto_P(system_setup, REPEAT_NUM);
-  } else if(c=="phono"){
-    Serial.println("Sending 'phono'");
-    IrSender.sendPronto_P(system_setup, REPEAT_NUM);
   } else if(c=="volu"){
     Serial.println("Sending 'volume up'");
     IrSender.sendPronto_P(vol_up, REPEAT_NUM);
@@ -90,7 +87,6 @@ void loop() {
     Serial.println("   e      - enter");
     Serial.println("   b      - back");
     Serial.println("   ss     - system setup");
-    Serial.println("   phono  - phono input");
     Serial.println("   volu   - volume up");
     Serial.println("   vold   - volume down");
     Serial.println("   mute   - toggle mute");
